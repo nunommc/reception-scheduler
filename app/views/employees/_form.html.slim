@@ -1,0 +1,9 @@
+= simple_form_for(@employee) do |f|
+  = f.error_notification
+
+  .form-inputs.nested-fields
+    = f.input :name
+    = f.association :office
+
+  .form-actions
+    = f.button :submit

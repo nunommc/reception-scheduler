@@ -1,0 +1,20 @@
+h1 = Employee.model_name.human.pluralize
+
+table.table.employees
+  thead
+    tr
+      th = t(:name)
+      th = Office.model_name.human
+      th[colspan=2]
+  tbody
+    - @employees.each do |employee|
+      tr
+        td= employee.name
+        td= employee.office
+        td[style="width: 50px"] = link_to t('action.edit'), [:edit, employee], class: 'btn btn-default'
+        td[style="width: 50px"] = link_to t('action.destroy'), [employee], data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'
+
+br
+
+= link_to t('action.new', model: Employee.model_name.human), [:new, :employee]
+

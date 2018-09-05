@@ -1,0 +1,11 @@
+= simple_form_for(@employee_shift) do |f|
+  = f.error_notification
+
+  .form-inputs.nested-fields
+    = f.association :employee
+    = f.input :day, as: :date, html5: true
+    = f.input :start_hour, as: :integer, input_html: { min: 0 }
+    = f.input :end_hour, as: :integer, input_html: { min: 0 }
+
+  .form-actions
+    = f.button :submit

@@ -1,0 +1,10 @@
+h1 = EmployeeShift.model_name.human.pluralize
+
+= week_calendar events: @employee_shifts do |date, shifts|
+  = date
+  - shifts.each do |shift|
+    = shift.duration
+
+br
+
+= link_to t('action.new', model: EmployeeShift.model_name.human), [:new, :employee_shift]

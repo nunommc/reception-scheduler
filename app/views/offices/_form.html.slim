@@ -1,0 +1,12 @@
+= simple_form_for(@office) do |f|
+  = f.error_notification
+
+  .form-inputs.nested-fields
+    = f.input :name
+    = f.input :address
+    = f.input :opening_hour, input_html: { min: 0 }
+    = f.input :closing_hour, input_html: { max: 24 }
+    = f.input :nr_reception_desks, input_html: { min: 0 }
+
+  .form-actions
+    = f.button :submit

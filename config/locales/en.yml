@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    models:
+      office: Office
+      employee_shift: Shifts
+
+  action:
+    destroy: Delete
+    edit: Edit
+    editing: "Editing %{model}"
+    view: View
+    show: Show
+    back: Back
+    new: "New %{model}"

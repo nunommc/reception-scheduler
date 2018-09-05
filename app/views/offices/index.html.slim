@@ -1,0 +1,20 @@
+h1 = Office.model_name.human.pluralize
+
+table.table.offices
+  thead
+    tr
+      th = t(:name)
+      th = t(:opening_hours)
+      th[colspan=2]
+  tbody
+    - @offices.each do |office|
+      tr
+        td= office.name
+        td= office.opening_hours
+        td[style="width: 50px"] = link_to t('action.edit'), [:edit, office], class: 'btn btn-default'
+        td[style="width: 50px"] = link_to t('action.destroy'), [office], data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'
+
+br
+
+= link_to t('action.new', model: Office.model_name.human), [:new, :office]
+

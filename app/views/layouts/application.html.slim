@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title Reception Scheduler | Soho House
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    nav.navbar.navbar-default[ role="navigation" ]
+      .container
+        .navbar-header
+          a.navbar-brand[ href=root_path ] Reception Scheduler
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li = link_to Office.model_name.human.pluralize, [:offices]
+            li = link_to Employee.model_name.human.pluralize, [:employees]
+            li = link_to EmployeeShift.model_name.human.pluralize, [:employee_shifts]
+    .container
+      .row
+        .col-md-12
+          - flash.each do |name, message|
+            .alert.alert-info.mr-flash[ class="flash-#{name}" ] = message
+
+    .container
+      .row
+        .col-md-12
+          = yield
+
